@@ -3,6 +3,7 @@ import { DefaultButton } from "@fluentui/react";
 import Header from "./Header";
 import HeroList, { HeroListItem } from "./HeroList";
 import Progress from "./Progress";
+import PopulateSheetWithUserTable from "./PopulateSheetWithUserTable";
 
 /* global console, Excel, require  */
 
@@ -79,7 +80,7 @@ export default class App extends React.Component<AppProps, AppState> {
 
     return (
       <div className="ms-welcome">
-        <Header logo={require("./../../../assets/logo-filled.png")} title={this.props.title} message="Hello There" />
+        {/* <Header logo={require("./../../../assets/logo-filled.png")} title={this.props.title} message="Hello There" />
         <HeroList message="Discover what Office Add-ins can do for you today!" items={this.state.listItems}>
           <p className="ms-font-l">
             Modify the source files, then click <b>Run</b>.
@@ -87,7 +88,8 @@ export default class App extends React.Component<AppProps, AppState> {
           <DefaultButton className="ms-welcome__action" iconProps={{ iconName: "ChevronRight" }} onClick={this.click}>
             Run
           </DefaultButton>
-        </HeroList>
+        </HeroList> */}
+        <PopulateSheetWithUserTable />
       </div>
     );
   }
