@@ -2,7 +2,18 @@ import * as React from "react";
 import { fetchUsers } from "../http/users";
 
 const PopulateSheetWithUserTable = () => {
+  const showLoadingText = () => {
+    Excel.run((context) => {
+      const sheet = context.workbook.worksheets.getActiveWorksheet();
+      const headerRange = sheet.getRange("A1");
+      headerRange.values = [["Fetching..."]];
+
+      // sync the context to run the previous API call, and return.
+      return context.sync();
+    });
+  };
   const populateSheet = async () => {
+    showLoadingText();
     const data = await fetchUsers();
     writeToSheet(data);
   };
